@@ -1,0 +1,47 @@
+{
+  "images_file": "./data/mnist_2digits_10K.npy",
+  "labels_file": "./data/mnist_2digits_10K_labels.npy",
+  "train_ratio": 0.8,
+  "cnn_model":
+  {
+    "input_size": [28, 28, 1],
+    "filter_count": 12,
+    "dropout": 0.5,
+    "split_features": true
+  },
+  "training":
+  {
+    "shuffle": true,
+    "batch_size": 20,
+    "epochs": 100,
+    "num_workers": 8,
+    "device": "cuda",
+    "random_seed": null,
+    "learning_rate_scheduler":
+    {
+      "name": "ReduceLROnPlateau",
+      "params": {
+        "factor": 0.15,
+        "patience": 2,
+        "min_lr": 1e-05
+      }
+    },
+    "optimizer":
+    {
+      "name": "SGD",
+      "params":
+      {
+        "lr": 0.001,
+        "momentum": 0.8
+      }
+    },
+    "data_augmentation":
+    {
+      "rotation_range_deg": 20,
+      "shift_range": 0.25,
+      "zoom_range": 0.25,
+      "horizontal_flip": false,
+      "vertical_flip": false
+    }
+  }
+}

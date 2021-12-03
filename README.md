@@ -13,7 +13,7 @@
 5. Install MNISTPairDetector
     ```
     cd ~
-    git tbd
+    git clone https://github.com/lsorgi/MNISTDigitPairDetector.git
     cd MNISTPairDetector
     pip install -e .
     ```
@@ -21,6 +21,13 @@
 ## Train model 
    
 ```
-pytest ./tests 
+cd ~/MNISTPairDetector
+python ./bin/run_training.py -c ./cfg/cfg.json -o ./models 
+```
+
+Logs are available on Tensorboard
+
+```
+tensorboard --logdir=./models
 ```
 
